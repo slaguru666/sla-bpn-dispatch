@@ -1,0 +1,168 @@
+<form class="sla-bpn-dispatch-form" data-colour-key="{{draft.colourKey}}" style="--bpn-accent: {{draft.colourAccent}};">
+  <header class="sla-bpn-hero">
+    <div class="sla-bpn-hero-band">
+      <img class="sla-bpn-hero-icon" src="{{draft.iconPath}}" alt="{{draft.colourLabel}} BPN">
+      <div class="sla-bpn-hero-band-label">{{draft.colourLabel}} BPN</div>
+    </div>
+    <div class="sla-bpn-hero-copy">
+      <div class="sla-bpn-overline">SLA INDUSTRIES // CORPORATE DISPATCH GRID</div>
+      <h1>{{draft.shortTitle}}</h1>
+      <p>{{draft.colourType}} // {{draft.colourSummary}}</p>
+    </div>
+    <div class="sla-bpn-hero-meta">
+      <div class="sla-bpn-chip">
+        <span>BPN ID</span>
+        <strong>{{draft.bpnId}}</strong>
+      </div>
+      <div class="sla-bpn-chip">
+        <span>SCL</span>
+        <strong>{{draft.sclRequirement}}</strong>
+      </div>
+      <div class="sla-bpn-chip">
+        <span>Gross</span>
+        <strong>{{draft.grossContract}}</strong>
+      </div>
+      <div class="sla-bpn-chip">
+        <span>Take-home</span>
+        <strong>{{draft.estimatedTakeHomeEach}}</strong>
+      </div>
+    </div>
+  </header>
+
+  <section class="sla-bpn-dispatch-grid sla-bpn-dispatch-grid--top">
+    <div class="sla-bpn-dispatch-field">
+      <label>Job Name</label>
+      <input type="text" name="shortTitle" value="{{draft.shortTitle}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>BPN ID</label>
+      <input type="text" name="bpnId" value="{{draft.bpnId}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Colour Band</label>
+      <select name="colourKey">
+        {{selectOptions colourOptions selected=draft.colourKey valueAttr="key" labelAttr="label"}}
+      </select>
+      <div class="sla-bpn-field-help">{{draft.colourType}}</div>
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Scenario Frame</label>
+      <select name="frameKey">
+        {{selectOptions frameOptions selected=draft.frameKey valueAttr="key" labelAttr="label"}}
+      </select>
+      <div class="sla-bpn-field-help">{{draft.shortTitle}}</div>
+    </div>
+  </section>
+
+  <section class="sla-bpn-dispatch-grid sla-bpn-dispatch-grid--meta">
+    <div class="sla-bpn-dispatch-field">
+      <label>Issuing Department</label>
+      <input type="text" name="issuingDepartment" value="{{draft.issuingDepartment}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Squad Size</label>
+      <input type="number" min="1" max="8" name="squadSize" value="{{draft.squadSize}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Primary Contact</label>
+      <input type="text" name="primaryContact" value="{{draft.primaryContact}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Contact Position</label>
+      <input type="text" name="primaryContactLocation" value="{{draft.primaryContactLocation}}">
+    </div>
+  </section>
+
+  <section class="sla-bpn-dispatch-grid sla-bpn-dispatch-grid--summary">
+    <div class="sla-bpn-dispatch-card">
+      <h3>Colour Dossier</h3>
+      <p><strong>Type:</strong> {{draft.colourType}}</p>
+      <p><strong>Summary:</strong> {{draft.colourSummary}}</p>
+      <p><strong>Details:</strong> {{draft.colourDetails}}</p>
+      <p><strong>Primary Contact:</strong> {{draft.primaryContact}}</p>
+    </div>
+    <div class="sla-bpn-dispatch-card">
+      <h3>Pressure Stack</h3>
+      <p><strong>Media:</strong> {{draft.mediaCoverage}}</p>
+      <p><strong>CBS Band:</strong> {{draft.cbsBand}}</p>
+      <p><strong>Financier Cut:</strong> {{draft.financierCut}}</p>
+      <p><strong>SCL Increase:</strong> {{draft.sclIncrease}}</p>
+      <p><strong>Threat Lead:</strong> {{draft.threatLead}}</p>
+    </div>
+  </section>
+
+  <section class="sla-bpn-dispatch-grid">
+    <div class="sla-bpn-dispatch-field">
+      <label>Mission Focus</label>
+      <input type="text" name="missionFocus" value="{{draft.missionFocus}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Operational Hook</label>
+      <input type="text" name="colourMissionIdea" value="{{draft.colourMissionIdea}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Location</label>
+      <input type="text" name="location" value="{{draft.location}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Atmosphere</label>
+      <input type="text" name="atmosphere" value="{{draft.atmosphere}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Opposition</label>
+      <input type="text" name="opposition" value="{{draft.opposition}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Opposition Attitude</label>
+      <input type="text" name="oppositionAttitude" value="{{draft.oppositionAttitude}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Civilian Faction</label>
+      <input type="text" name="civilianFaction" value="{{draft.civilianFaction}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Extra Objective</label>
+      <input type="text" name="extraObjective" value="{{draft.extraObjective}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Escalation Event</label>
+      <input type="text" name="escalationEvent" value="{{draft.escalationEvent}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Threat Lead</label>
+      <input type="text" name="threatLead" value="{{draft.threatLead}}">
+    </div>
+    <div class="sla-bpn-dispatch-field">
+      <label>Threat Count</label>
+      <input type="text" name="threatCountLabel" value="{{draft.threatCountLabel}}">
+    </div>
+  </section>
+
+  <section class="sla-bpn-dispatch-grid">
+    <div class="sla-bpn-dispatch-field">
+      <label>Complication</label>
+      <textarea name="complication">{{draft.complication}}</textarea>
+    </div>
+    <div class="sla-bpn-dispatch-field sla-bpn-dispatch-field--danger">
+      <label>GM Twist</label>
+      <textarea name="localTwist">{{draft.localTwist}}</textarea>
+    </div>
+  </section>
+
+  <section class="sla-bpn-dispatch-field sla-bpn-dispatch-field--wide">
+    <label>Mission Brief</label>
+    <textarea name="missionBrief">{{draft.missionBrief}}</textarea>
+  </section>
+
+  <section class="sla-bpn-dispatch-field">
+    <label>Operational Notes</label>
+    <textarea name="operationalNotes">{{draft.operationalNotes}}</textarea>
+  </section>
+
+  <div class="sla-bpn-dispatch-actions">
+    <button type="button" data-action="randomize">Randomize BPN</button>
+    <button type="button" data-action="chat">Post To Chat</button>
+    <button type="button" data-action="journal">Create Journal + NPCs</button>
+    <button type="button" data-action="save">Save Draft</button>
+  </div>
+</form>
