@@ -884,6 +884,7 @@ function actorPayloadFromArchetype({ name, profile, role, location, description,
     type: "creature",
     img: image || profile.image || "icons/svg/mystery-man.svg",
     folder: folderId,
+    ownership: { default: CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE },
     flags: {
       [MODULE_ID]: {
         generated: true,
@@ -1014,7 +1015,7 @@ class SlaBpnDispatchApp extends FormApplication {
       const playerEntry = await JournalEntry.create({
         name: `${draft.colourLabel} BPN - ${draft.shortTitle}`,
         img: draft.iconPath || bpnIconPath(draft.colourKey),
-        ownership: { default: CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER },
+        ownership: { default: CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE },
         pages: [{ name: "Mission Brief", type: "text", text: { content: playerHtml(draft) } }]
       }, { renderSheet: false });
       await JournalEntry.create({
@@ -1087,6 +1088,7 @@ function ensureLaunchRow(root, parentSelector, rowClass) {
 }
 
 function installJournalButton(_app, html) {
+  if (!game.user?.isGM) return;
   const root = getHtmlRoot(html);
   const launchRow = ensureLaunchRow(root, ".directory-header", "sla-bpn-dispatch-launch-row");
   if (launchRow && !launchRow.querySelector(".sla-bpn-dispatch-open")) {
@@ -1102,6 +1104,7 @@ function installJournalButton(_app, html) {
 }
 
 function installSettingsButton(_app, html) {
+  if (!game.user?.isGM) return;
   const root = getHtmlRoot(html);
   appendOpenButton(root, ".settings-sidebar #game-details, .settings-sidebar .directory-header .header-actions, .settings-sidebar .action-buttons", "sla-bpn-dispatch-settings-open", "BPN Dispatch");
 }
